@@ -360,7 +360,7 @@ h6 {
 .button::after,
 .button::before {
   position: absolute;
-  width: 100%;
+  width: calc(100% + .125rem);
   height: 100%;
   top: 0;
   transition: left .3s;
@@ -406,7 +406,8 @@ h6 {
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0
+  left: 0;
+  z-index: 6
 }
 .hero__gradients::before {
   content: "";
@@ -433,14 +434,14 @@ h6 {
 .hero__container {
   display: flex;
   align-items: center;
-  position: relative;
-  z-index: 4;
   min-height: 100svh
 }
 .hero__content {
   display: flex;
   flex-direction: column;
-  gap: 2rem
+  gap: 2rem;
+  position: relative;
+  z-index: 8
 }
 .hero__content--pg2 {
   display: block
@@ -479,7 +480,9 @@ h6 {
   font-size: .875rem;
   font-weight: 400;
   line-height: 1.2;
-  text-decoration-line: underline
+  text-decoration-line: underline;
+  transition: color .3s;
+  will-change: color
 }
 .hero__img {
   position: relative;
@@ -524,7 +527,8 @@ h6 {
   .hero::before {
     content: "";
     position: absolute;
-    z-index: 8
+    z-index: 7;
+    pointer-events: none
   }
   .hero::before {
     width: 5.8%;
@@ -888,5 +892,8 @@ h6 {
   }
   .button:hover::after {
     left: 0
+  }
+  .hero__subtext:hover {
+    color: var(--text-accent)
   }
 }
